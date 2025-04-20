@@ -1,0 +1,135 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Blog API",
+    "version": "1.0.0"
+  },
+  "components": {
+    "schemas": {
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "User ID"
+          },
+          "username": {
+            "type": "string",
+            "description": "Username"
+          },
+          "email": {
+            "type": "string",
+            "description": "Email address"
+          },
+          "first_name": {
+            "type": "string",
+            "description": "First name"
+          },
+          "last_name": {
+            "type": "string",
+            "description": "Last name"
+          },
+          "birth_date": {
+            "type": "string",
+            "format": "date",
+            "description": "Date of birth"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Account creation timestamp"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Last update timestamp"
+          },
+          "is_active": {
+            "type": "boolean",
+            "description": "Account status"
+          },
+          "settings": {
+            "type": "object",
+            "description": "User preferences and settings"
+          },
+          "roles": {
+            "type": "array",
+            "description": "User roles",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "created_at",
+          "email",
+          "id",
+          "is_active",
+          "updated_at",
+          "username"
+        ]
+      },
+      "Post": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Post ID"
+          },
+          "title": {
+            "type": "string",
+            "description": "Post title"
+          },
+          "content": {
+            "type": "string",
+            "description": "Post content"
+          },
+          "status": {
+            "type": "string",
+            "description": "Publication status (draft, published, archived)"
+          },
+          "author": {
+            "$ref": "#/components/schemas/User"
+          },
+          "tags": {
+            "type": "array",
+            "description": "Post tags",
+            "items": {
+              "type": "string"
+            }
+          },
+          "category": {
+            "type": "string",
+            "description": "Post category"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Post creation timestamp"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Last update timestamp"
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Publication timestamp"
+          }
+        },
+        "required": [
+          "author",
+          "content",
+          "created_at",
+          "id",
+          "status",
+          "title",
+          "updated_at"
+        ]
+      }
+    }
+  }
+}

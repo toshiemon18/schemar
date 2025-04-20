@@ -9,6 +9,9 @@ module Schemar
     def self.extended(base)
       base.instance_variable_set(:@schema_attributes, {})
       base.instance_variable_set(:@schema_required, [])
+
+      # クラス内でBooleanを使えるようにする
+      base.const_set(:Boolean, Schemar::Boolean) unless base.const_defined?(:Boolean)
     end
 
     # クラス変数のアクセサ
@@ -18,6 +21,9 @@ module Schemar
     def attribute(name, type:, required: false, description: nil, example: nil, item_type: nil)
       @schema_attributes ||= {}
       @schema_required ||= []
+
+      # Boolean型の場合、クラス内で定義されたBooleanを使用
+      type = Schemar::Boolean if type == Boolean
 
       schema_info = Schemar::OpenAPITypeMapper.map(type).dup
       schema_info[:description] = description if description

@@ -18,7 +18,7 @@ module Example
     # アカウント情報
     attribute :created_at, type: DateTime, required: true, description: "Account creation timestamp"
     attribute :updated_at, type: DateTime, required: true, description: "Last update timestamp"
-    attribute :is_active, type: TrueClass, required: true, description: "Account status"
+    attribute :is_active, type: Boolean, required: true, description: "Account status"
 
     # 設定情報
     attribute :settings, type: Hash, description: "User preferences and settings"

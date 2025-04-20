@@ -11,8 +11,7 @@ module Schemar
       Integer => {type: "integer", format: "int64"},
       Float => {type: "number", format: "float"},
       BigDecimal => {type: "number", format: "double"}, # もしくはstringでformatを付けるか
-      TrueClass => {type: "boolean"},
-      FalseClass => {type: "boolean"},
+      Schemar::Boolean => {type: "boolean"},
       Date => {type: "string", format: "date"},
       Time => {type: "string", format: "date-time"},
       DateTime => {type: "string", format: "date-time"},

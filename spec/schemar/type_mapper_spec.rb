@@ -20,12 +20,8 @@ RSpec.describe Schemar::OpenAPITypeMapper do
       expect(described_class.map(BigDecimal)).to eq({type: "number", format: "double"})
     end
 
-    it "maps TrueClass type correctly" do
-      expect(described_class.map(TrueClass)).to eq({type: "boolean"})
-    end
-
-    it "maps FalseClass type correctly" do
-      expect(described_class.map(FalseClass)).to eq({type: "boolean"})
+    it "maps Boolean type correctly" do
+      expect(described_class.map(Schemar::Boolean)).to eq({type: "boolean"})
     end
 
     it "maps Date type correctly" do

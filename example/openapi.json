@@ -1,11 +1,99 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "Blog API",
+    "title": "Generated API",
     "version": "1.0.0"
   },
   "components": {
     "schemas": {
+      "Post": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Post ID"
+          },
+          "title": {
+            "type": "string",
+            "description": "Post title"
+          },
+          "content": {
+            "type": "string",
+            "description": "Post content"
+          },
+          "status": {
+            "type": "string",
+            "description": "Publication status\n\nEnum values:\n- draft: draft\n- published: published\n- archived: archived",
+            "enum": [
+              "draft",
+              "published",
+              "archived"
+            ]
+          },
+          "type": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Post type\n\nEnum values:\n- technology: 0\n- lifestyle: 1\n- business: 2\n- entertainment: 3",
+            "enum": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          "tags": {
+            "type": "array",
+            "description": "Post tags",
+            "items": {
+              "$ref": "#/components/schemas/Tag"
+            }
+          },
+          "author": {
+            "$ref": "#/components/schemas/User"
+          },
+          "category": {
+            "type": "string",
+            "description": "Post category"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Post creation timestamp"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Last update timestamp"
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Publication timestamp"
+          }
+        },
+        "required": [
+          "author",
+          "content",
+          "created_at",
+          "id",
+          "status",
+          "title",
+          "type",
+          "updated_at"
+        ]
+      },
+      "Tag": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ]
+      },
       "User": {
         "type": "object",
         "properties": {
@@ -68,66 +156,6 @@
           "is_active",
           "updated_at",
           "username"
-        ]
-      },
-      "Post": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "Post ID"
-          },
-          "title": {
-            "type": "string",
-            "description": "Post title"
-          },
-          "content": {
-            "type": "string",
-            "description": "Post content"
-          },
-          "status": {
-            "type": "string",
-            "description": "Publication status (draft, published, archived)"
-          },
-          "author": {
-            "$ref": "#/components/schemas/User"
-          },
-          "tags": {
-            "type": "array",
-            "description": "Post tags",
-            "items": {
-              "type": "string"
-            }
-          },
-          "category": {
-            "type": "string",
-            "description": "Post category"
-          },
-          "created_at": {
-            "type": "string",
-            "format": "date-time",
-            "description": "Post creation timestamp"
-          },
-          "updated_at": {
-            "type": "string",
-            "format": "date-time",
-            "description": "Last update timestamp"
-          },
-          "published_at": {
-            "type": "string",
-            "format": "date-time",
-            "description": "Publication timestamp"
-          }
-        },
-        "required": [
-          "author",
-          "content",
-          "created_at",
-          "id",
-          "status",
-          "title",
-          "updated_at"
         ]
       }
     }

@@ -13,6 +13,6 @@ group :test do
   gem "rspec", "~> 3.0"
 end
 
-gem "standard", "~> 1.3"
+gem "standard", "~> 1.50"
 
 gem "thor", "~> 1.3"

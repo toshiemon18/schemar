@@ -8,7 +8,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     ast (2.4.3)
-    bigdecimal (3.1.9)
+    bigdecimal (3.2.1)
     date (3.4.1)
     diff-lcs (1.6.1)
     io-console (0.8.0)
@@ -99,7 +99,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bigdecimal (~> 3.1)
+  bigdecimal (~> 3.2)
   irb
   rake (~> 13.0)
   rspec (~> 3.0)

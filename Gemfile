@@ -7,7 +7,7 @@ gemspec
 
 gem "irb"
 gem "rake", "~> 13.0"
-gem "bigdecimal", "~> 3.1"
+gem "bigdecimal", "~> 3.2"
 
 group :test do
   gem "rspec", "~> 3.0"
